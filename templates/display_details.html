@@ -1,29 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        h2 {
+            color: #3498db;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .user-detail {
+            color: #555;
+        }
+
+        .label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .no-info {
+            color: #555;
+        }
+
+        .word-count {
+            color: #555;
+        }
+    </style>
 </head>
+
 <body>
+
     <h2>User Details</h2>
-    
+
     {% if user_info %}
         {% for user in user_info %}
-            <p>Username: {{ user[1] }}</p>
-            <p>Password: {{ user[2] }}</p>
-            <p>First Name: {{ user[3] }}</p>
-            <p>Last Name: {{ user[4] }}</p>
-            <p>Email: {{ user[5] }}</p>
+            <p class="user-detail"><span class="label">Username:</span> {{ user[1] }}</p>
+            <p class="user-detail"><span class="label">Password:</span> {{ user[2] }}</p>
+            <p class="user-detail"><span class="label">First Name:</span> {{ user[3] }}</p>
+            <p class="user-detail"><span class="label">Last Name:</span> {{ user[4] }}</p>
+            <p class="user-detail"><span class="label">Email:</span> {{ user[5] }}</p>
         {% endfor %}
     {% else %}
-        <p>No information found for the provided username and password.</p>
+        <p class="no-info">No information found for the provided username and password.</p>
     {% endif %}
 
-    {% if wc  %}
-        <p>Word Count in the uploaded file: {{ wc }}</p>
+    {% if wc %}
+        <p class="word-count"><span class="label">Word Count in the uploaded file:</span> {{ wc }}</p>
     {% endif %}
 
 </body>
+
 </html>
 
